@@ -1,0 +1,71 @@
+#include<iostream>
+#define MAX 100
+
+void Nhap(int a[], int& n);
+void Xuat(int a[], int n);
+
+
+using namespace std;
+
+void Nhap(int a[], int &n)
+{
+	do
+	{
+		cout << "Nhap so luong phan tu n : ";
+		cin >> n;
+	} while (n <= 0 || n > MAX);
+
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "a[" << i << "] : ";
+		cin >> a[i];
+	}
+}
+
+void Xuat(int a[], int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << a[i] << " ";
+	}
+}
+
+void Xoa(int a[], int& n, int vt)
+{
+	for (int i = vt; i < n - 1; ++i)
+	{
+		a[i] = a[i + 1];
+	}
+	--n;
+}
+
+void Xoa_Phan_Tu_Trung_Nhau(int a[], int& n)
+{
+	for (int i = 0; i < n - 1; ++i)
+	{
+		for (int j = i + 1; j < n; ++j)
+		{
+			if (a[i] == a[j])
+			{
+				Xoa(a, n, j);
+				--j;
+			}
+		}
+	}
+}
+
+
+int main()
+{
+	int a[MAX];
+	int n = 0;
+
+	Nhap(a, n);
+	cout << "Mang vua nhap la : " << endl;
+	Xuat(a, n);
+	Xoa_Phan_Tu_Trung_Nhau(a, n);
+	cout << "\nMang sau khi xoa phan tu trung nhau : " << endl;
+	Xuat(a, n);
+
+	return 0;
+}

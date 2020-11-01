@@ -1,0 +1,45 @@
+1. So sánh con biến con trỏ và biến thường, trình bày chi tiết các thành phần của biến con trỏ và biến thường
+
+Biến thường: 	- lưu giá trị
+                - địa chỉ:	nơi biến được sinh ra - hđh cấp phát cho nó quản lý
+                - vùng nhớ:(giá trị) : nơi lưu giá trị
+
+
+Biến con trỏ:  - lưu địa chỉ
+               _ địa chỉ: nơi mà hđh cấp phát cho nó quản lý - là nơi nó sinh ra
+               _ miền giá trị:  - nơi sẽ lưu địa chỉ của biến nó trỏ tới
+               _ giá trị: giá trị của biến mà nó sẽ trỏ đến
+
+2. Ta có int a = 5; địa chỉ của a là BAX03
+trình bày luồng chương trình khi gặp lệnh: int *b = &a; 
+- HDH sẽ tạo ra 1 biến con trỏ b trỏ tới biến a
+- Miền giá trị của biến b chính là địa chỉ của biến a : BAX03
+- Giá trị của b lúc này cũng là 5;
+lệnh: cout<<b<<endl;
+- Xuất ra màn hình miền giá trị của b: BAX03;
+lệnh: cout<<*b<<endl;
+- Xuất ra màn hình giá trị của biến mà b đang trỏ tới : 5
+lệnh: float *c = a;
+- Chương trình sẽ báo lỗi vì kiểu dữ liệu con trỏ và biến nó trỏ tới khác nhau
+lệnh: a = 15;
+- Gán a =15;
+- lúc này giá trị mà con trỏ b trỏ tới cũng là 15
+
+3. trình bày tính chất của biến thường và biến con trỏ trong phạm vi trỏ
+-  tại 1 thời điểm 1 con trỏ chỉ có thể trỏ đến 1 nơi
+-  tại 1 thời điểm 1 biến có thể được nhiều con trỏ trỏ đến
+
+4. Lợi ích của con trỏ ?
+
+Thay đổi giá trị mà biến nó trỏ tới
+
+5. kích thước con trỏ là bao nhiêu ? trình bày chi tiết ?
+
+- Kích thước cảu con trỏ không phụ thuộc vào kiểu dữ liệu mà nó trỏ tới. nó phụ thuộc và hdh 32 bit hay 64 bit( ứng dụng 32 bit hay 64 bit)
+- Kích thước của con trỏ là 4 byte đối với HDH 32 bit và 8 byte đối với hdh 64 bit.
+- hdh 32 bit sẽ tương ứng với 2^32 địa chỉ hay 2^32 ô nhớ tương đương với 4 byte;
+- hdh 64 bit sẽ tương ứng với 2^64 địa chỉ hay 2^64 ô nhớ tương đương với 8 byte;
+
+6. trình bày cú pháp của hàm trả về một con trỏ
+
+<kiểu dữ liệu>*  <tên hàm>;

@@ -1,0 +1,116 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	//============== cau 1 =============
+	//int a = 7, b = 3;
+	///*int tam = a;
+	//a = b;
+	//b = tam;*/
+	//a = a + b;//10
+	//b = a - b;//10-3 = 7
+	//a = a - b;//10 - 7 = 3
+	//cout << a << "   " << b << endl;
+	//================ cau 2 ===================
+	//pt b2:	ax2 + bx + c = 0
+	/*int a, b, c;
+	cout << "Nhap :";cin >> a >> b >> c;
+	if (a == 0)
+	{
+		if (b == 0)
+		{
+			if (c == 0)
+			{
+				cout << "PT VSN" << endl;
+			}
+			else
+			{
+				cout << "PT VN" << endl;
+			}
+		}
+		else
+		{
+			cout << "PT co nghiem la: " << -c / b << endl;
+		}
+	}
+	else
+	{
+		float delta = b*b - 4 * a*c;
+		if (delta > 0)
+		{
+			cout << "Pt co 2 nghiem pb: " << endl;
+			cout << "x1 = " << ((-b) - sqrt(delta)) / (2 * a) << endl;
+			cout << "x2 = " << ((-b) + sqrt(delta)) / (2 * a) << endl;
+		}
+		else if (delta < 0)
+		{
+			cout << "PT VN" << endl;
+		}
+		else
+		{
+			cout << "Pt co nghiem kep: x1 = x2 = " << -b / (2 * a);
+		}
+	}*/
+	//======================= câu 3 ========================
+	/*float dtb;
+	do
+	{
+		cout << "Nhap diem trung binh: ";cin >> dtb;
+	} while (dtb<0||dtb>10);
+	if (dtb>=8)
+	{
+		cout << "gioi" << endl;
+	}
+	else if (dtb >= 6.5)
+	{
+		cout << "kha" << endl;
+	}
+	else if (dtb >= 5)
+	{
+		cout << "trung binh" << endl;
+	}
+	else if (dtb >= 3.5)
+	{
+		cout << "yeu" << endl;
+	}
+	else
+	{
+		cout << "kem" << endl;
+	}*/
+	//===================== cau 4 ========================
+	int thang, nam;
+	do
+	{
+		cout << "Nhap thang: ";cin >> thang;
+	} while (thang < 1 || thang >12);
+	switch (thang)
+	{
+	case 1: case 3: case 5: case 7: case 8: case 10:case 12:
+	{
+		cout << "Thang co 31 ngay" << endl;
+		break;
+	}
+	case 4: case 6: case 9: case 11:
+	{
+		cout << "Thang co 30 ngay" << endl;
+		break;
+	}
+	case 2:
+	{
+		do
+		{
+			cout << "Nhap nam: ";cin >> nam;
+		} while (nam<0);
+		if (nam % 4 == 0)
+		{
+			cout << "Thang co 29 ngay" << endl;
+		}
+		else
+		{
+			cout << "Thang co 28 ngay" << endl;
+		}
+	}
+	}
+	system("pause");
+	return 0;
+}

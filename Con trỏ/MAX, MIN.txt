@@ -1,0 +1,68 @@
+#include<iostream>
+#define MAX 50
+
+using namespace std;
+
+void Nhap(int* p, int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "a[" << i << "] : ";
+		cin >> *(p + i);
+	}
+}
+
+void Xuat(int* p, int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << *(p + i) << " ";
+	}
+}
+
+void TimMax(int* p, int n)
+{
+	int max = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		if (max == 0 || *(p + i) > max)
+		{
+			max = *(p + i);
+		}
+	}
+	cout << "\nGia tri lon nhat mang la : " << max << endl;
+}
+
+void TimMin(int* p, int n)
+{
+	int min = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		if (min == 0 || *(p + i) < min)
+		{
+			min = *(p + i);
+		}
+	}
+
+	cout << "Gia tri nho nhat mang la : " << min << endl;
+}
+
+int main()
+{
+	int a[50];
+	int n;
+	int* p = a;
+
+	do
+	{
+		cout << "Nhap so luong phan tu : ";
+		cin >> n;
+	} while (n <= 0 || n > MAX);
+
+	Nhap(p, n);
+	Xuat(p, n);
+	TimMax(p, n);
+	TimMin(p, n);
+
+	return 0;
+}

@@ -1,0 +1,164 @@
+//==============  các toán tử cơ bản ==================
+
+//------------------------------- 1. toán tử gán ( = )
+
+_ khi gán thì kdl của 2 vế phải đồng nhất
+
+int tuoi = 18;
+
+ngoại trừ:
+
+VD1: 	int a = 'Z';	//a = 90	//  A: 65   Z:  90	a: 97  z: 122	48: 0 	 57: 9
+
+VD2: 	bool kt = true;
+	int a = kt; //a = 1
+
+
+VD3: 	gán biểu thức:
+	int a = 5;
+	int b = (a+ 2)*3;
+
+
+biểu thức:	trả về giá trị
+biểu thức logic (đk):	trả về đúng hoặc sai
+
+//------------------------ 2. các toán tử số học
+
++  -  *  /  %
+
+int a=5,b=6;
+int c = a * b;
+
+
+/ :	chia lấy nguyên
+
+c = 7/2; // c  = 3		lấy 7/2 mà ra kết quả chính xác ?
+			_      * cho 1.0
+			_ 	ép kiểu:	<kdl cần ép>(<giá trị/ biến cần ép>)
+					VD:  	float(7/2)
+
+					c2:  	static_cast<kdl cần ép>(giá trị/biến)
+
+	cout << 7 / 2 << endl;
+	cout << 7 * 1.0 / 2 << endl;
+	cout << float(7) / 2 << endl;
+	cout << static_cast<float>(7) / 2 << endl;
+
+nguyên chia nguyên => nguyên
+nguyên chia thực => thực
+thực chia thực => thực
+thực chia nguyên => thực
+
+toán tử  %: modulus
+
+VD: 7%2	= 1	=> ứng dụng: tách số,...
+
+	VD:	n = 1234	
+		n%10 = 123	4
+		n= n/10 		123
+
+		n%10 = 123%10	3
+		n = n/10		12
+
+		n%10 = 12%10	2
+		n=n/10		1
+
+		n%10		1
+		n=n/10		0	
+
+
+		123		4
+
+int a =15;
+a + 10 = 25
+//a = 15
+a = a + 10;
+//a = 25
+
+//--------------------- 3. các toán phức hợp (+=, -=, *=, /=, %= ,...)
+
+
+VD: 	int a = 5;
+	a += 5;	// a = a + 5;
+	a /=5;	// a = a / 5;
+
+//----------------- 4. tăng và giảm
+
+tăng  ++   : tăng 1 đơn vị cho biến
+giảm --  	: giảm 1 đơn vị cho biến
+
+VD:	a++;	// a+= 1;		//a = a + 1
+	a--;	// a-= 1;		// a = a - 1
+
+tính chất: tiền tố,  hậu tố
+
+tiền tố:	toán tử sẽ đứng trước biến:  ++a
+		đi thực hiện tăng/giảm giá trị trước rồi mới đi thực hiện tính toán
+
+VD:	int a=5;
+	int b = ++a;	//a = 6	, b = 6
+
+	a = a + 1;
+	int b = a;
+	
+hậu tố:	toán tử sẽ đứng sau biến:   a++
+		đi thực hiện tính toán trước rồi mới thực hiện tăng/giảm giá trị
+
+VD:	int a=5;
+	int b = a++;	// b = 5,	a = 6
+
+	int b = a;
+	a = a + 1;
+
+
+		Bài 1:
+		int a = 6;
+		int b = 5;
+		int c = 2;
+		b += c; // b = b + c	= 5 + 2 = 7
+		b *= c; // b = b * c	= 7*2  = 14
+		int d = 5;			// a = 6, b = 14, c = 2, d = 5
+		d += (b--) - (c++);	// d = d + 14 - 2 = 5 + 14 - 2 = 17, b = 13,  c = 3, a = 6
+		d -= (++b) + (--c);	// d = d - ( (14) + 2) =   17 - 14 - 2 = 1     ,b = 14, c = 2, 
+
+		a = 6
+		b = 14
+		c  = 2  d = 1
+
+//----------------------- 5. toán tử quan hệ (==, != , >=, <=, >, <)
+
+thực hiện btđk:  trả về true / false
+
+(6 >= 2)	true
+(3 == 2)	false
+
+//------------------ 6. toán tử logic (!, &&, || )
+
+!(6 >= 2)			false	
+(6 >= 2) && (3 == 2)		false
+(6 >= 2) || (3 == 2)		true
+
+
+A 		B		A && B		A || B
+true		true		true		true
+true		false		false		true
+false		false		false		false
+false		true		false		true
+
+		(45 && 54)
+		(44 && 44)	
+
+//-------------------	7.	toán tử 3 ngôi/ điều kiện		?
+
+
+	(btdk) ?	<giá trị 1> : <giá trị 2>;
+
+VD:	(x > 0) ?	x dương :	x âm;
+
+	nếu btdk    = true	=> giá trị 1
+	   	= false	=> giá trị 2
+
+	(trời mưa)	?	ở nhà : đi chơi ;
+
+
+ứng dụng	câu lệnh đk rút gọn:	câu lệnh đk là gì ?	 =>

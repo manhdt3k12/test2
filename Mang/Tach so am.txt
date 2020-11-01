@@ -1,0 +1,91 @@
+#include<iostream>
+#define MAX 100
+
+void Nhap(int a[], int& n);
+void Xuat(int a[], int n);
+
+using namespace std;
+
+void Nhap(int a[], int& n)
+{
+	do
+	{
+		cout << "Nhap so luong phan tu n : ";
+		cin >> n;
+	} while (n <= 0 || n > MAX);
+
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "a[" << i << "] : ";
+		cin >> a[i];
+	}
+
+}
+
+void Xuat(int a[], int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << a[i] << " ";
+	}
+}
+
+void Them(int a[], int& n, int vt, int x)
+{
+	for (int i = n - 1; i >= vt; --i)
+	{
+		a[i + 1] = a[i];
+	}
+	a[vt] = x;
+	++n;
+}
+
+void Xoa(int a[], int& n, int vt)
+{
+	for (int i = vt; i < n - 1; ++i)
+	{
+		a[i] = a[i + 1];
+	}
+	--n;
+}
+
+
+void Tach_So_Am(int a[], int& na, int b[], int &nb)
+{
+	int ib = 0;
+	nb = 0;
+	for (int ia = 0; ia < na; ++ia)
+	{
+		if (a[ia] < 0)
+		{
+			b[ib] = a[ia];
+			++ib;
+			++nb;
+			Xoa(a, na, ia);
+			--ia;
+		}
+	}
+
+	
+}
+
+int main()
+{
+	int a[MAX];
+	int b[MAX];
+
+	int na = 0;
+	int nb = 0;
+
+	Nhap(a, na);
+	cout << "Mang a sau khi nhap la : " << endl;
+	Xuat(a, na);
+
+	Tach_So_Am(a, na, b, nb);
+	cout << "\nMang a sau khi tach so am : " << endl;
+	Xuat(a, na);
+	cout << "\nMang b : " << endl;
+	Xuat(b, nb);
+
+	return 0;
+}

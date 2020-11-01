@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class NhanVien
+{
+public:
+	string name;
+	NhanVien()
+	{
+
+	}
+	virtual void xuat()
+	{
+		cout << " abc " << endl;
+	}
+};
+
+class NhanVienIT : public NhanVien
+{
+public:
+	NhanVienIT()
+	{
+		name = "NVIT";
+	}
+	void xuat()
+	{
+		cout << name << " nhieu tien " << endl;
+	}
+};
+
+class NhanVienKho : public NhanVien
+{
+public:
+	NhanVienKho()
+	{
+		name = "NVK";
+	}
+	void xuat()
+	{
+		cout << name << " rat nhieu tien " << endl;
+	}
+
+};
+
+int main()
+{
+	NhanVien* nv = new NhanVienIT();
+	nv->xuat();
+	delete nv;
+
+	nv = new NhanVienKho();
+	nv->xuat();
+	delete nv;
+
+	return 0;
+}

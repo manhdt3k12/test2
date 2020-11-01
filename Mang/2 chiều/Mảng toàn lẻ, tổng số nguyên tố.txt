@@ -1,0 +1,182 @@
+#include<iostream>
+
+using namespace std;
+
+void Nhap(int a[][50], int nHang, int nCot)
+{
+	for (int i = 0; i < nHang; ++i)
+	{
+		for (int j = 0; j < nCot; ++j)
+		{
+			cout << "a[" << i << "][" << j << "] : ";
+			cin >> a[i][j];
+		}
+	}
+}
+
+
+void Xuat(int a[][50], int nHang, int nCot)
+{
+	for (int i = 0; i < nHang; ++i)
+	{
+		for (int j = 0; j < nCot; ++j)
+		{
+			cout.width(5);
+			cout << a[i][j];
+		}
+		cout << endl;
+	}
+}
+
+void KT_Toan_Le(int a[][50], int nHang, int nCot)
+{
+	bool kt = true;
+	for (int i = 0; i < nHang; ++i)
+	{
+		for (int j = 0; j < nCot; ++j)
+		{
+			if (a[i][j] % 2 == 0)
+			{
+				kt = false;
+				break;
+			}
+		}
+	}
+	
+	if (kt == true)
+	{
+		cout << "Mang toan so le" << endl;
+	}
+	else
+	{
+		cout << "Mang khong phai toan le" << endl;
+	}
+}
+
+int main()
+{
+	int a[50][50];
+	int nHang, nCot;
+
+	do
+	{
+		cout << "Nhap so hang : ";
+		cin >> nHang;
+	} while (nHang <= 0 || nHang > 50);
+
+	do
+	{
+		cout << "Nhap so cot : ";
+		cin >> nCot;
+	} while (nCot <= 0 || nCot > 50);
+
+	Nhap(a, nHang, nCot);
+	Xuat(a, nHang, nCot);
+	KT_Toan_Le(a, nHang, nCot);
+
+	return 0;
+}
+
+Bài 2: Tính Tổng số nguyên tố trong mảng
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void Nhap(int a[][50], int nHang, int nCot)
+{
+	for (int i = 0; i < nHang; ++i)
+	{
+		for (int j = 0; j < nCot; ++j)
+		{
+			cout << "a[" << i << "][" << j << "] : ";
+			cin >> a[i][j];
+		}
+	}
+}
+
+
+void Xuat(int a[][50], int nHang, int nCot)
+{
+	for (int i = 0; i < nHang; ++i)
+	{
+		for (int j = 0; j < nCot; ++j)
+		{
+			cout.width(5);
+			cout << a[i][j];
+		}
+		cout << endl;
+	}
+}
+
+bool KT_SNT(int a)
+{
+	if (a < 2)
+	{
+		return false;
+	}
+	else
+	{
+		int temp = sqrt(a);
+		for (int i = 2; i <= temp; ++i)
+		{
+			if (a % i == 0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+}
+
+void Tinh_Tong_SNT(int a[][50], int nHang, int nCot)
+{
+	int S = 0;
+	bool kt = false;
+	for (int i = 0; i < nHang; ++i)
+	{
+		for (int j = 0; j < nCot; ++j)
+		{
+			if (KT_SNT(a[i][j]) == true)
+			{
+				S += a[i][j];
+				kt = true;
+			}
+		}
+	}
+
+	if (kt == false)
+	{
+		cout << "Mang khong co so nguyen to" << endl;
+	}
+	else
+	{
+		cout << "Tong cac so nguyen to trong mang la : " << S << endl;
+	}
+
+}
+
+int main()
+{
+	int a[50][50];
+	int nHang, nCot;
+
+	do
+	{
+		cout << "Nhap so hang : ";
+		cin >> nHang;
+	} while (nHang <= 0 || nHang > 50);
+
+	do
+	{
+		cout << "Nhap so cot : ";
+		cin >> nCot;
+	} while (nCot <= 0 || nCot > 50);
+
+	Nhap(a, nHang, nCot);
+	Xuat(a, nHang, nCot);
+	Tinh_Tong_SNT(a, nHang, nCot);
+
+	return 0;
+}

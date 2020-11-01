@@ -1,0 +1,44 @@
+Bài 4. Nhập vào 1 số nguyên n(n > 0). Tính tổng các " chữ số lẻ " của số nguyên dương n.
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	int n;
+
+	int S = 0;
+	do
+	{
+		cout << "Nhap n : ";
+		cin >> n;
+		if (n <= 0)
+		{
+			cout << "n khong hop le. Nhap lai" << endl;
+		}
+	} while (n <= 0);
+
+	int temp = n;
+	while (n > 0)
+	{
+		int chu_so = n % 10;
+		cout << chu_so << endl;
+		if (chu_so % 2 != 0)
+		{
+			S += chu_so;
+		}
+		n /= 10;
+	}
+	if (S == 0)
+	{
+		cout << temp << " khong co chu so le" << endl;
+	}
+	else
+	{
+		cout << "Tong cac chu so le cua " << temp << " la : " << S << endl;
+	}
+
+
+	return 0;
+}

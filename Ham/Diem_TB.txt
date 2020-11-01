@@ -1,0 +1,27 @@
+void Diem_TB()
+{
+	int diem;
+	do
+	{
+		cout << "Nhap diem : ";
+		cin >> diem;
+	} while (diem < 0 || diem>10);
+
+
+	if (diem <= 3)
+	{
+		cout << " Yeu " << endl;
+	}
+	else if (diem >= 4 && diem <= 6)
+	{
+		cout << " Tb " << endl;
+	}
+	else if (diem >= 6 && diem <= 8)
+	{
+		cout << " Kha " << endl;
+	}
+	else
+	{
+		cout << " Gioi " << endl;
+	}
+}

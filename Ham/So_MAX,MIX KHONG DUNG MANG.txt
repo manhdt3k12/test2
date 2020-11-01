@@ -1,0 +1,36 @@
+#include<iostream>
+
+using namespace std;
+
+
+void So_Max_Min()
+{
+	int n, so;
+	int max = -1;
+	int min = -1;
+	cout << "Nhap so luong phan tu : ";
+	cin >> n;
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "Nhap so thu " << i + 1 << " : ";
+		cin >> so;
+		if (max == -1 || max < so)
+		{
+			max = so;
+		}
+		if (min == -1 || min > so)
+		{
+			min = so;
+		}
+	}
+	cout << "\nSo lon nhat la : " << max << endl;
+	cout << "So nho nhat la : " << min << endl;
+}
+
+
+
+int main()
+{
+	So_Max_Min();
+	return 0;
+}

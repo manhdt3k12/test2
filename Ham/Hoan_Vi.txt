@@ -1,0 +1,27 @@
+#include<iostream>
+
+using namespace std;
+
+
+void Hoan_Vi(int &a, int &b)
+{
+	a = a + b;
+	b = a - b;
+	a = a - b;
+}
+
+
+
+int main()
+{
+	int a, b;
+	cout << "Nhap a : ";
+	cin >> a;
+	cout << "Nhap b : ";
+	cin >> b;
+
+	Hoan_Vi(a, b);
+
+	cout << "Sau khi hoan vi : " << a << " " << b << endl;
+	return 0;
+}

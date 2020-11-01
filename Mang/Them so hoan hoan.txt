@@ -1,0 +1,87 @@
+#include<iostream>
+#define MAX 100
+
+void Nhap(int a[], int& n);
+void Xuat(int a[], int n);
+bool KT_So_Hoan_Thien(int x);
+void Them(int a[], int& n, int vt, int x);
+void Them_Phan_Tu_0(int a[], int& n);
+
+using namespace std;
+
+void Nhap(int a[], int &n)
+{
+	do
+	{
+		cout << "Nhap so luong phan tu n : ";
+		cin >> n;
+	} while (n <= 0 || n > MAX);
+
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "a[" << i << "] : ";
+		cin >> a[i];
+	}
+}
+
+void Xuat(int a[], int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << a[i] << " ";
+	}
+}
+
+bool KT_So_Hoan_Thien(int x)
+{
+	int S = 0;
+
+	for (int i = 1; i < x; ++i)
+	{
+		if (x % i == 0)
+		{
+			S += i;
+		}
+	}
+	if (S == x) return true;
+	else return false;
+}
+
+void Them(int a[], int &n, int vt, int x)
+{
+	for (int i = n - 1; i >= vt; --i)
+	{
+		a[i + 1] = a[i];
+	}
+	a[vt] = x;
+	++n;
+}
+
+
+void Them_Phan_Tu_0(int a[], int& n)
+{
+	for (int i = n - 1; i >=0; --i)
+	{
+		if (KT_So_Hoan_Thien(a[i]) == true)
+		{
+			Them(a, n, i, 0);
+		}
+	}
+}
+
+
+int main()
+{
+	int a[MAX];
+	int n = 0;
+
+	Nhap(a, n);
+	cout << "Mang vua nhap la : " << endl;
+	Xuat(a, n);
+	Them_Phan_Tu_0(a, n);
+	cout << "\nMang sau khi them phan tu 0 vao truoc cac so hoan thien la :" << endl;
+	Xuat(a,n);
+
+
+	return 0;
+}

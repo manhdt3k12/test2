@@ -1,0 +1,97 @@
+#include<iostream>
+#define MAX 100
+using namespace std;
+
+
+void Nhap(int a[], int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "a[" << i << "] : ";
+		cin >> a[i];
+	}
+}
+
+void Xuat(int a[], int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << a[i] << " ";
+	}
+}
+
+void Xoa(int a[], int& n, int vt)
+{
+	for (int i = vt; i < n - 1; ++i)
+	{
+		a[i] = a[i + 1];
+	}
+	--n;
+}
+
+void SapXepGiamDan(int a[], int n)
+{
+	for (int i = 0; i < n - 1; ++i)
+	{
+		for (int j = i + 1; j < n; ++j)
+		{
+			if (a[i] < a[j])
+			{
+				int temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+			}
+		}
+	}
+}
+
+int UCLN(int a, int b)
+{
+	while (a != b)
+	{
+		if (a > b)
+		{
+			a = a - b;
+		}
+		else
+		{
+			b = b - a;
+		}
+	}
+	return a;
+}
+
+void UCLN_Mang(int a[], int n)
+{
+	int kq = UCLN(a[0], a[1]);
+
+	for (int i = 2; i < n; ++i)
+	{
+		kq = UCLN(kq, a[i]);
+		if (kq == 1)
+		{
+			break;
+		}
+	}
+
+	cout << "\nUCLN cua mang la : " << kq << endl;
+}
+
+int main()
+{
+
+	int a[MAX];
+	int n;
+	do
+	{
+		cout << "Nhap so luong phan tu : ";
+		cin >> n;
+	} while (n <= 0 || n > MAX);
+
+	Nhap(a, n);
+	cout << "Mang vua nhap la : " << endl;
+	Xuat(a, n);
+	UCLN_Mang(a, n);
+
+	return 0;
+}

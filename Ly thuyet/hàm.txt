@@ -1,0 +1,147 @@
+//================== cấu trúc hàm =================
+
+các giai đoạn phát triển của lập trình
+_ lập trình tuyến tính
+_ lập trình hướng thủ tục hàm
+_ lập trình hướng đối tượng
+
+
+//==================== thủ tục hàm =======================
+
+hàm là 1 khối lệnh được thiết kế để thực hiện một công việc: mà nó lặp lại nhiều lần
+
+
+_ định nghĩa hàm:
+
+	cú pháp:		<kdl của hàm> <tên hàm> ( <tham số truyền vào nếu có>)
+			{
+				//thân hàm
+			}
+
+
+		: <tên hàm>	: đặt theo quy tắt đặt tên biến
+		: <kdl của hàm>
+
+		_ hàm có kdl trả về: hàm đi thực hiện tính toán, sau đó trả kết quả về
+			kdl của hàm = kdl của giá trị mà hàm trả về
+
+			tinh_diem_trung_binh()
+			tinh_tong_2_so_nguyen()
+			kiem_tra_so_nguyen_to()
+			hoan_vi_2_so_nguyen()
+			
+			trả về được 1 giá trị duy nhất - return
+
+			ví dụ: muốn trả về nhiều hơn 2 giá trị thì sao ? 
+
+		_ hàm không có kdl trả về: chỉ đi thực hiện lệnh không trả về giá trị
+			kdl của hàm = void
+			xuat_hello()
+
+
+_ lời gọi hàm(nằm ở main/ hàm khác):	<tên hàm>(<tham số truyền vào - tham số thực>)
+
+	cách sử dụng hàm có giá trị trả về:	lời gọi hàm <=> giá trị
+
+	giá trị:					lời gọi hàm:
+
+xuất ra màn hình:	cout<<15;				cout<<tinh_gt();
+gán cho biến:	int a = 15;				int a = tinh_gt();
+dùng trong biểu thức:	int b = 15;				int b = 15;
+		int a = (b * 2 + 6);			int a = (b*2 + tinh_gt());
+
+dùng trong biểu thức đk:	if(15 > 0)			if(tinh_gt() > 0)
+
+
+
+
+
+
+tham số truyền vào:	
+		_ tham số thực:	tham số được truyền vào lời gọi hàm - giá trị đang tồn tại trong main
+		
+		_ tham số hình thức:    tham số được truyền vào định nghĩa hàm
+			lúc này sẽ tạo 1 bản sao của tham số thực: cùng giá trị - khác địa chỉ
+
+
+			tham trị: không có dấu & - truyền giá trị vô - rồi tạo bản sao - coppy giá trị
+			tham chiếu: có dấu & - tương tác trên vùng nhớ của đối tượng
+
+	Ghi Chú:	 nếu tương tác trên vùng nhớ => sẽ lưu lại việc thay đổi
+	
+
+
+	khi sử dụng hàm: hỏi xem tham số truyền vào có bị cập nhật dữ liệu hay không
+				nếu có: hỏi xem có muốn lưu lại việc cập nhật hay không
+					nếu có: tham chiếu
+		
+//------------------- bonus -------------------------
+		 biến toàn cục và biến cục bộ
+
+biến toàn cục: sẽ có phạm vi ảnh hưởng đến toàn bộ chương trình
+biến cục bộ: sẽ có phạm vi ảnh hưởng trong cấu trúc bao nó thôi
+
+	sẽ được giải phóng khi kết thúc cấu trúc
+
+
+//--------------------------------- nguyên mẫu hàm --------------------------------
+
+
+định nghĩa hàm dưới main, khai báo nguyên mẫu trên main.
+lợi ích:	_ không vướn vấn đề logic, hàm nào trước, hàm nào sau
+	_ chương trình sẽ chuyên nghiệp hơn, dễ tìm kiếm fix lỗi
+	_ nhìn vào nguyên mẫu hàm, sẽ biết chương trình xử lý cho việc gì
+
+//-------------------------------- nạp chồng hàm --------------------
+
+
+_ cùng ý nghĩa/ công việc thực hiện -  cùng tên hàm: sẽ cho phép nạp chồng lại
+	nạp chồng: đi cài đặt lại nội dung, kdl trả về, tham số truyền vào
+
+_ nhập biết vô hàm nào để xử lý: dựa vào kdl của tham số truyền vào, và sl tham số truyền vào
+
+
+//--------------------------------------- mảng 1 chiều tĩnh ---------------------
+
+
+mảng: tập hợp các phần tử có cùng kdl với nhau	
+		là tập hợp các biến: nằm liên tiếp nhau
+
+
+
+
+a	chỉ sô:	0	1	2	3	4
+	giá trị:	5	7	6	-3	4
+
+
+	toán tử chỉ số []	dùng cho mảng: tương tác lên vùng nhớ của phần tử có chỉ số truyền vô
+			//tương tác lên vùng nhớ -> mọi thay đổi sẽ được lưu lại
+
+	<tên mảng>[<chỉ số phần tử cần tương tác>]
+
+	VD:	a[2]
+
+
+
+cú pháp khai báo:	<kdl > <tên biến> [<số lượng phần tử tối đa>];
+		VD:	int a[100];
+
+	sl phần tử tối đa: giá trị không đổi/ 	giá trị/ const	(không truyền biến)
+
+
+nhập/khởi tạo giá trị cho mảng:
+
+
+	khởi tạo trực tiếp:	int a[100] = {1,2,3,4,5};//những thèn còn lại sẽ mang giá trị 0
+			int a[] = {1,2,3,4,5};//khởi tạo tự cập nhật sl phần tử tối đa
+
+	thông dụng: khởi tạo lần lượt:	truy cập từng phần tử rồi nhập
+
+
+	int n; nhập n;// sl phần tử hiện tại
+	for(int i=0;i<n;i++)
+	{
+		cin >> a[i];//phần tử chỉ số i
+	}
+
+mảng: khi thay đổi giá trị trong hàm, không cần tham chiếu vì đã có toán tử chỉ số

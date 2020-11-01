@@ -1,0 +1,64 @@
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+
+void Nhap_Mang(int a[], int& n)
+{
+	do
+	{
+		cout << "Nhap so luong phan tu :";
+		cin >> n;
+		if (n <= 0)
+		{
+			cout << "So luong phan tu phai > 0" << endl;
+		}
+	} while (n <= 0);
+
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "a[" << i << "]=";
+		cin >> a[i];
+	}
+}
+
+void Xuat_Mang(int arr[], int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << arr[i] << " ";
+	}
+}
+
+
+void Tim_So_Le_Cuoi_Cung(int a[], int n)
+{
+	bool kt = false;
+	for (int i = n - 1; i >= 0; --i)
+	{
+		if ((a[i]) % 2 != 0)
+		{
+			cout << "\nSo le cuoi cung cua mang la : " << a[i] << endl;
+			kt = true;
+			break;
+		}
+	}
+	if (kt == false)
+	{
+		cout << "\nMang khong co so le" << endl;
+	}
+}
+
+int main()
+{
+	int a[50];
+	int n = 0;
+
+	Nhap_Mang(a, n);
+	cout << "Mang vua nhap la :" << endl;
+	Xuat_Mang(a, n);
+	Tim_So_Le_Cuoi_Cung(a, n);
+
+	return 0;
+}

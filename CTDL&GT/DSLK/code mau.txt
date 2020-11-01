@@ -1,0 +1,96 @@
+#include <iostream>
+
+using namespace std;
+
+class node
+{
+public:
+	int data;
+	node* pnext;
+	node(int data)
+	{
+		this->data = data;
+		pnext = NULL;
+	}
+};
+
+class list
+{
+public:
+	node* phead = NULL;
+	node* ptail = NULL;
+
+	void xuat()
+	{
+		for (node* k = phead; k != NULL; k = k->pnext)
+		{
+			cout << k->data << " ";
+		}
+	}
+
+	void them_cuoi()
+	{
+		int data;
+		cout << "Nhap data : ";
+		cin >> data;
+		
+		node* p = new node(data);
+		if (phead == NULL)
+		{
+			phead = ptail = p;
+			p->pnext = NULL;
+		}
+		else
+		{
+			ptail->pnext = p;
+			ptail = p;
+		}
+	}
+};
+
+void menu()
+{
+	list l;
+	int check;
+	do
+	{
+		system("cls");
+		cout << "1.Them cuoi" << endl;
+		cout << "2.Xuat" << endl;
+		cout << "3.Thoat" << endl;
+		cout << "Lua chon cua ban : ";
+		cin >> check;
+		switch (check)
+		{
+		case 1 :
+			{
+				l.them_cuoi();
+				break;
+			}
+		case 2:
+		{
+			l.xuat();
+			system("pause");
+			cout << endl;
+			break;
+		}
+		case 3:
+		{
+			break;
+		}
+		default :
+		{
+			cout << "Lua chon khong hop le" << endl;
+			system("pause");
+			break;
+		}
+		};
+	} while (check != 3);
+}
+
+int main()
+{
+	menu();
+
+	return 0;
+}

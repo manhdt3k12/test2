@@ -1,0 +1,60 @@
+#include<iostream>
+#define MAX 50
+
+using namespace std;
+
+void Nhap(int* p, int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "a[" << i << "] : ";
+		cin >> *(p + i);
+	}
+}
+
+void Xuat(int* p, int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << *(p + i) << " ";
+	}
+}
+
+void SapXep(int* p, int n)
+{
+	for (int i = 0; i < n - 1; ++i)
+	{
+		for (int j = i + 1; j < n; ++j)
+		{
+			if (*(p + i) > * (p + j))
+			{
+				int temp = *(p + i);
+				*(p + i) = *(p + j);
+				*(p + j) = temp;
+			}
+		}
+	}
+}
+
+int main()
+{
+	int a[50];
+	int n;
+	int* p = a;
+
+	
+
+	do
+	{
+		cout << "Nhap so luong phan tu : ";
+		cin >> n;
+	} while (n <= 0 || n > MAX);
+
+	Nhap(p, n);
+	Xuat(p, n);
+	SapXep(p, n);
+	cout << "\nMang sau khi sap xep tang dan la :" << endl;
+	Xuat(p, n);
+
+	return 0;
+}

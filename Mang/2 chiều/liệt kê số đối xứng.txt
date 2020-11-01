@@ -1,0 +1,98 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void Nhap(int a[][50], int nHang, int nCot)
+{
+	for (int i = 0; i < nHang; ++i)
+	{
+		for (int j = 0; j < nCot; ++j)
+		{
+			cout << "a[" << i << "][" << j << "] : ";
+			cin >> a[i][j];
+		}
+	}
+}
+
+
+void Xuat(int a[][50], int nHang, int nCot)
+{
+	for (int i = 0; i < nHang; ++i)
+	{
+		for (int j = 0; j < nCot; ++j)
+		{
+			cout.width(5);
+			cout << a[i][j];
+		}
+		cout << endl;
+	}
+}
+
+bool KT_SDX(int a)
+{
+	int so_dao = 0;
+	int gia_tri = 0;
+	int temp = a;
+
+	while (temp != 0)
+	{
+		gia_tri = temp % 10;
+		so_dao = so_dao * 10 + gia_tri;
+		temp /= 10;
+	}
+
+	if (a == so_dao)
+	{
+		return true;
+	}
+	else return false;
+}
+
+
+void Liet_Ke_SDX(int a[][50], int nHang, int nCot)
+{
+	bool kt = false;
+
+	for (int i = 0; i < nHang; ++i)
+	{
+		for (int j = 0; j < nCot; ++j)
+		{
+			if (KT_SDX(a[i][j]) == true)
+			{
+				cout << a[i][j] << " ";
+				kt = true;
+			}
+		}
+	}
+
+	if (kt == false)
+	{
+		cout << "Mang khong co so doi xung" << endl;
+	}
+
+}
+
+int main()
+{
+	int a[50][50];
+	int nHang, nCot;
+
+	do
+	{
+		cout << "Nhap so hang : ";
+		cin >> nHang;
+	} while (nHang <= 0 || nHang > 50);
+
+	do
+	{
+		cout << "Nhap so cot : ";
+		cin >> nCot;
+	} while (nCot <= 0 || nCot > 50);
+
+	Nhap(a, nHang, nCot);
+	Xuat(a, nHang, nCot);
+	Liet_Ke_SDX(a, nHang, nCot);
+
+	return 0;
+}

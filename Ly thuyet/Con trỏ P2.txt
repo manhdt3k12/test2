@@ -1,0 +1,54 @@
+C:			malloc()		
+			calloc()			
+			realloc()		
+
+
+C++:			new : toán tử
+
+		
+//----------------------- yêu cầu ------
+1. C: các hàm cấp phát nằm ở thư viện nào ?
+
+- Các hàm cấp phát nằm ở thư viện <stdlib.h>
+
+2. C: nguyên mẫu hàm của các hàm cấp phát
+- void * malloc(size);
+- void * calloc(n, size);
+- void * realloc(void * tên con trỏ, size);
+
+3, 4. C: ứng dụng: lời gọi hàm, cơ chế hoạt động của từng hàm ?
+
+Lưu ý: Khi sử dụng hàm malloc() hay calloc(), ta phải ép kiểu vì nguyên mẫu các hàm này trả về con trỏ kiểu void.
+
+- void * malloc(size); Cấp phát vùng nhớ có kích thước là size. Ví dụ sizeof(int).
+
+                        ví dụ : int *p = (int *) malloc(sizeof(int)); Cấp phát vùng nhớ có kích thước bằng với kích thước của một số nguyên
+
+- void * calloc(n, size); Cấp phát vùng nhớ có kích thước là  n * size. Ví dụ 5 * sizeof(int).
+   +) n là số ô nhớ muốn khởi tạo
+   +) size là kích thước 1 ô nhớ
+                         ví dụ : int *p = (int *) calloc(100 * sizeof(int)); Cấp phát vùng nhớ có thể chứa được 100 số nguyên
+
+- void * realloc(void * tên con trỏ, size); Trong quá trình thao tác trên biến con trỏ, nếu ta cần cấp phát thêm vùng nhớ có kích thước lớn hơn vùng nhớ đã cấp phát, ta sử dụng hàm realloc().
+
+    Hàm này sẽ cố gắng mở rộng số ô nhớ ra phía sau nếu có thể để giữ nguyên giá trị của con trỏ ban đầu. Trong trường hợp phải đổi sang một vùng nhớ khác, hàm realloc() cũng sẽ mang theo giá trị đã có ở vùng nhớ cũ sang vùng nhớ mới và giải phóng luôn vùng nhớ cũ
+
+    Ví dụ : int *p = (int *)malloc(5 * sizeof(int));
+            Cấp phát vùng nhớ có thể chứa được 5 số nguyên
+             *p = (int *)realloc(p, 10 * sizeof(int));
+            Cấp phát lại vùng nhớ có thể chứa được 10 số nguyên
+
+5: C++: cơ chế hoạt động của toán tử new
+
+- dùng để cấp phát bộ nhớ cho con trỏ: ví dụ int *p = new int;
+
+6: Nhận xét hàm realloc và new , giống và khác nhau ?
+
+- Giống nhau : đều yêu cầu hdh cấp phát vùng nhớ cho con trở
+
+- Khác nhau :
++) new là 1 từ khóa, 1 toán tử còn realloc là 1 hàm, hàm sẽ có nhiều thủ tục phức tạp hơn như: khai báo, định nghĩa, giá trị trả vê...
++) New sẽ trả về chính xác kiểu dữ liệu của vùng nhớ nó vừa cấp phát, ví dụ ta khai báo cấp phát vùng nhớ int thì nó sẽ trả về kiểu int.
+Còn malloc thì trả về con trỏ kiểu void => chúng ta phải ép kiểu cho nó
++) new sẽ ném ra ngoại lệ khi cấp phát thất bại còn realloc thì trả về NULL
++) realloc cấp phát thêm vùng nhớ 1 cách dễ dàng

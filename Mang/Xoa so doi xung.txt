@@ -1,0 +1,89 @@
+#include<iostream>
+#define MAX 100
+
+void Nhap(int a[], int& n);
+void Xuat(int a[], int n);
+bool KT_So_Doi_Xung(int x);
+void Xoa(int a[], int& n, int vitri);
+void Xoa_So_Doi_Xung(int a[], int& n);
+
+using namespace std;
+
+void Nhap(int a[], int &n)
+{
+	do
+	{
+		cout << "Nhap so luong phan tu n : ";
+		cin >> n;
+	} while (n <= 0 || n > MAX);
+
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "a[" << i << "] : ";
+		cin >> a[i];
+	}
+}
+
+void Xuat(int a[], int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << a[i] << " ";
+	}
+}
+
+bool KT_So_Doi_Xung(int x)
+{
+	
+	int So_dao = 0;
+	int Don_vi = 0;
+	int temp = x;
+
+	while (x != 0)
+	{
+		Don_vi = x % 10;
+		So_dao = So_dao * 10 + Don_vi;
+		x = x / 10;
+	}
+	if (temp == So_dao)
+	{
+		return true;
+	}
+	else return false;
+}
+
+void Xoa(int a[], int &n, int vitri)
+{
+	for (int i = vitri; i < n - 1; ++i)
+	{
+		a[i] = a[i + 1];
+	}
+	--n;
+}
+
+
+void Xoa_So_Doi_Xung(int a[], int &n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		if (KT_So_Doi_Xung(a[i]) == 1)
+		{
+			Xoa(a, n, i);
+			--i;
+		}
+	}
+}
+int main()
+{
+	int a[MAX];
+	int n = 0;
+
+	Nhap(a, n);
+	cout << "Mang vua nhap la : " << endl;
+	Xuat(a, n);
+	Xoa_So_Doi_Xung(a, n);
+	cout << "\nMang sau khi xoa so doi xung : " << endl;
+	Xuat(a, n);
+
+	return 0;
+}

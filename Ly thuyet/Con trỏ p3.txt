@@ -1,0 +1,48 @@
+//============================ phần 1 ==================
+1. C: các hàm cấp phát nằm ở thư viện nào ?
+2. C: nguyên mẫu hàm của các hàm cấp phát
+3. C: ứng dụng: lời gọi hàm
+4: C: cơ chế hoạt động của từng hàm ?
+5: C++: cơ chế hoạt động của toán tử new
+6: Nhận xét hàm realloc và new , giống và khác nhau ?
+
+-----------------Đã làm và nộp ở bài trước----------------
+
+//========================== phần 2 =============
+Xem lại lý thuyết + hình vẽ + nhớ lại bài giảng:
+1. Trình bày phân tích luồng chương trình với đoạn lệnh sau:
+int *a = new int[5];
+- khai báo ra con trỏ a và yêu cầu hệ điều hành cấp phát cho nó 5 vùng nhớ kiểu int
+a = new int[3];
+- a yêu cầu hệ điều hành cấp phát cho nó 3 vùng nhớ kiểu int, 3 vùng nhớ này khác hoàn toàn với 5 vùng nhớ được cấp phát lúc trước
+int *b = a;
+- khai báo ra con trỏ b đồng thời cho con trỏ b trỏ tới vùng nhớ mà a đang quản lý. Ví dụ a đang trỏ tới vùng nhớ đầu tiên có địa chỉ là BX01 thì b cũng trỏ tới BX01.
+
+2.Trình bày và phân tích chi tiết hàm cấp phát mới
+
+void cap_phat_moi(int *&p, int ncu, int nmoi)
+{
+int*tam=p;
+//tạo con trỏ *tam chỉ đến vùng nhớ cũ của con trỏ p chỉ đến//
+p = new int(nmoi);
+// tao vùng nhớ mới cho con trỏ p chỉ đến//
+for(int i=0; i< ncu; i++)
+{
+p[i] = tam[i];
+}
+// sao chép dữ liệu vào vùng nhớ mới//
+delete[] tam;
+// giải phóng vùng nhớ cũ mà *tam chỉ đến.
+}
+
+3. sử dụng các cụm từ sau điền vào chỗ chấm cho hợp lý:
+
+- thuật toán thêm phần tử trong mảng động cấp phát trước thêm sau
+
+- thuật toán xóa phần tử trong mảng động xóa trước cấp phát sau
+
+5. Khi sử dụng hàm: cần chú ý những gì (3 ý - đã giảng kỹ trong video)
+
+- Nếu tham số là biến mà có sự thay đổi trong hàm thì hỏi xem có muốn lưu lại hay không? Nếu muốn lưu lại thì tham chiếu
+- Nếu tham số là con trỏ mà có sự thay đổi giá trị nơi nó trỏ đến trong hàm thì không cần tham chiếu( sẽ tự động lưu)
+- Nếu tham số là con trỏ mà có sự thay đổi về miền giá trị( địa chỉ nó trỏ đến) thì hỏi có muốn lưu lại hay không? Nếu muốn luwulaij thì tham chiếu

@@ -1,0 +1,180 @@
+A: 65 - Z: 90		a: 97 - z: 122	48: 0  - 57: 9
+
+
+
+int d = 4;
+int a = 4;
+int c = (d += (a++) * 5);	c = d 		d = (d + a++ * 5) = (4 + 4 * 5) = 24
+			c = 24, d = 24, a = 5
+c /= (d++) + (a--);		c = c / ((d++)  + (a--))	= 24 /( 24 + 5) = 24/29 = 0
+				d = 25, a = 4, c =0
+int b = (c++ - ++d) * a++;	b = (0 - 26)*4 = -104			d = 26, a= 5, c = 1
+
+//===================== câu lệnh đk và cấu trúc rẽ nhánh ========================
+
+câu lệnh đk thiếu:	
+
+if(<btđk>)
+{
+	//thực hiện lệnh/ khối lệnh
+}
+VD:	if( trời mưa)
+	{
+		//ở nhà
+	}
+
+
+câu lệnh đk đủ:
+
+	if(trời mưa)
+	{
+		//ở nhà
+	}
+	else//các trường hợp còn lại
+	{
+		//
+	}
+
+
+	VD: if(x>0)
+	{
+		cout<<"x duong"<<endl;
+	}
+	else
+	{
+		cout<<"x khong phai la so duong"<<endl;
+	}
+
+	VD:	kt số x		if - else if - else if - else if .... 
+	if(x>0)
+	{
+		cout<<"x duong"<<endl;
+	}
+	else if(x<0)
+	{
+		cout<<"x am"<<endl;
+	}
+	else
+	{
+		cout<<"x bang 0"<<endl;
+	}
+
+
+cấu trúc rẽ nhánh 
+
+switch(<biến/giá trị>)
+{
+	case <giá trị 1>: 
+	{
+		//lệnh
+		break;
+	}
+	case <giá trị 2>: 
+	{
+		//lệnh
+		break;
+	}
+	...
+	case <giá trị n>: 
+	{
+		//lệnh
+		break;
+	}
+}
+
+break: phá vỡ cấu trúc(thoát cấu trúc)
+
+
+switch() đủ
+
+default:
+{
+	break;
+}
+
+
+switch() : chỉ áp dụng cho số nguyên:	xử lý nhanh hơn 
+	xử lý cho kiểu khác (thực):	=> sử dụng if - else if
+
+
+VD: xếp loại học lực:	=> if else if
+
+switch() hay dùng cho:	 ngày tháng năm, xử lý menu
+
+
+toán tử 3 ngôi:	(btđk)? <giá trị 1>: <giá trị 2>		câu lệnh đk rút gọn
+
+	if(btdk)
+	{
+		//gia tri1
+	}
+	else
+	{
+		//gia tri 2
+	}
+
+
+if lồng nhau:
+
+		// giải pt bậc nhất : ax + b = 0
+	if(a == 0)
+	{
+		if(b == 0)
+		{
+			//pt vs n
+		}
+		else
+		{
+		 	//pt vo nghiem
+		}
+	}
+	else
+	{
+		//x= -b/a;
+	}
+
+//========================= cấu trúc lặp =========================
+
+while	:	lặp khi chưa biết trước số lần lặp
+do while	:	thực thi trước rồi mới lặp (nhập liệu - nhập xong đi kiểm tra)
+for	:	lặp khi biết trước số lần
+
+
+while(<btdk>)				B1: kiểm tra bt đk:
+{						true:	B2: thực thi lệnh -> B1
+	//lệnh					false:	Thoát cấu trúc
+}
+
+
+lặp vô tận: xảy ra khi btdk luôn đúng -> sự thay đổi giá trị của btdk -> đến 1 lúc nào đó btdk sẽ sai
+
+2 giải pháp để dừng lặp vô tận:	tìm sự thay đổi giá trị của btđk
+			break;
+
+do					B1: thực thi lệnh	
+{					B2: kiểm tra btđk
+	//lệnh					true: 	-> B1
+}while(<btdk>);					false:	thoát
+
+--------------------------- for ----------------------------
+
+
+
+for(<khởi tạo>;<btđk>;<bước lặp>)		B1:	khởi tạo
+{					B2:	kt btdk 
+	//lệnh 					true:	thực thi lệnh -> B3: bước lặp
+}							B4: -> quay về B2
+						false: thoát
+
+
+//------------------------------ cấu trúc lặp lồng nhau ---------------------------------
+
+
+*******
+*******
+*******
+
+		vẽ hình chữ nhật
+		vẽ 1 vàng 3 lần
+		vẽ 1 dấu sao 7 lần(1 hàng)
+			vẽ 1 dấu sao

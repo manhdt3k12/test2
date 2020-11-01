@@ -1,0 +1,106 @@
+#include<iostream>
+#define MAX 100
+
+void Nhap(int a[], int& n);
+void Xuat(int a[], int n);
+void Tron_Mang(int a[], int na, int b[], int nb, int c[], int& nc);
+
+using namespace std;
+
+void Nhap(int a[], int& n)
+{
+	do
+	{
+		cout << "Nhap so luong phan tu n : ";
+		cin >> n;
+	} while (n <= 0 || n > MAX);
+
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "a[" << i << "] : ";
+		cin >> a[i];
+	}
+
+}
+
+void Xuat(int a[], int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << a[i] << " ";
+	}
+}
+
+void Them(int a[], int& n, int vt, int x)
+{
+	for (int i = n - 1; i >= vt; --i)
+	{
+		a[i + 1] = a[i];
+	}
+	a[vt] = x;
+	++n;
+}
+
+
+
+
+void Tron_Mang(int a[], int na, int b[], int nb, int c[], int &nc)
+{
+	nc = na + nb;
+	int ia = 0;// Chỉ số mảng a
+	int ib = 0;// Chỉ số mảng b
+
+	for (int ic = 0; ic < nc; ++ic)
+	{
+		if (ia < na && ib < nb)
+		{
+			if (a[ia] < b[ib])
+			{
+				c[ic] = a[ia];
+				++ia;
+			}
+			else
+			{
+				c[ic] = b[ib];
+				++ib;
+			}
+		}
+		else if (ia == na)
+		{
+			c[ic] = b[ib];
+			++ib;
+		}
+		else
+		{
+			c[ic] = a[ia];
+			++ia;
+		}
+	}
+
+}
+
+
+int main()
+{
+	int a[MAX];
+	int b[MAX];
+	int c[MAX];
+
+	int na = 0;
+	int nb = 0;
+	int nc = 0;
+	
+	cout << "Nhap mang a : " << endl;
+	Nhap(a, na);
+	cout << "Nhap mang b : " << endl;
+	Nhap(b, nb);
+	cout << " 2 Mang vua nhap la : " << endl;
+	Xuat(a, na);
+	cout << endl;
+	Xuat(b, nb);
+	Tron_Mang(a, na, b, nb, c, nc);
+	cout << "\nMang sau khi tron la :" << endl;
+	Xuat(c, nc);
+
+	return 0;
+}

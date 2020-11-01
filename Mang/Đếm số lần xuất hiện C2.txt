@@ -1,0 +1,74 @@
+#include<iostream>
+#define MAX 100
+using namespace std;
+
+
+void Nhap(int a[], int& n)
+{
+	do
+	{
+		cout << "Nhap so luong phan tu : ";
+		cin >> n;
+	} while (n <= 0 || n > MAX);
+
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "a[" << i << "] : ";
+		cin >> a[i];
+	}
+}
+
+void Xuat(int a[], int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		cout << a[i] << " ";
+	}
+}
+
+void Dem_So_Lan_Lap(int a[], int n)
+{
+	
+
+	for (int i = 0; i < n; ++i)
+	{
+		bool kt = true;
+		int dem = 1;
+
+		for (int j = 0; j < i; ++j)
+		{
+			if (a[i] == a[j])
+			{
+				kt = false;
+				break;
+			}
+		}
+
+		if (kt == true)
+		{
+			for (int j = i + 1; j < n; ++j)
+			{
+				if (a[i] == a[j])
+				{
+					++dem;
+				}
+			}
+			cout << a[i] << " xuat hien " << dem << " lan" << endl;
+		}	
+	}
+}
+
+int main()
+{
+
+	int a[MAX];
+	int n = 0;
+
+	Nhap(a, n);
+	cout << "Mang vua nhap la : " << endl;
+	Xuat(a, n);
+	cout << endl;
+	Dem_So_Lan_Lap(a, n);
+
+	return 0;
+}
